@@ -11,7 +11,7 @@ import android.util.Log;
  */
 public class MemberDAO extends SQLiteOpenHelper {
     public MemberDAO(Context context) {
-        super(context, null, null, 1);
+        super(context, "hanbitDB", null, 1);
         //DB_NAME, null, DB_VERSEION
     }
 
@@ -39,7 +39,7 @@ public class MemberDAO extends SQLiteOpenHelper {
     }
 
     public MemberBean login(MemberBean member) {
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("select id, pw, name, email from member where id= '"+member.getId()+"' and pw = '"+member.getPw()+"' ", null);
         String cid = "";
         String cpw = "";
