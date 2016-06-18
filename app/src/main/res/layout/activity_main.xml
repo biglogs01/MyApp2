@@ -28,5 +28,15 @@
         android:layout_height="wrap_content"
         android:text="걸그룹"
         android:id="@+id/btGroup"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="영화"
+        android:id="@+id/btMovie"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="스피너"
+        android:id="@+id/btSpinner"/>
 </LinearLayout>
 

@@ -73,16 +73,16 @@ public class GroupActivity extends Activity implements View.OnClickListener{
                 break;
             case R.id.btList : // 목록
                 db = groupHelper.getReadableDatabase();
-                cursor = db.rawQuery("SELECT * FROM girl_group;",null);
-                id = "NO"+"\r\n"+"-------------"+"\r\n";
-                name = "그룹이름"+"\r\n"+"-------------"+"\r\n";
-                num = "멤버수"+"\r\n"+"--------------"+"\r\n";
-                while (cursor.moveToNext()){
-                    name += cursor.getString(1) + "\r\n";
-                    num += cursor.getInt(2) + "\r\n";
+                cursor = db.rawQuery("SELECT * FROM girl_group;", null);
+                String title  = "NO | 그룹명 | 멤버수"+ "\r\n"+"----------------------------------" +"\r\n";
+                String contents = "";
+                while ( cursor.moveToNext()){
+                    id = String.valueOf(cursor.getInt(0));
+                    name = cursor.getString(1);
+                    num = String.valueOf(cursor.getInt(2));
+                    contents += id + "     |" + name + "           |" + num + "\r\n";
                 }
-
-                etResult.setText(name+num);
+                etResult.setText(title+ contents);
                 cursor.close();
                 db.close();
                 break;
